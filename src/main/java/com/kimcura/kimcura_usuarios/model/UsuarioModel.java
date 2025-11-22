@@ -1,9 +1,12 @@
 package com.kimcura.kimcura_usuarios.model;
 
 import java.sql.Date;
+import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,8 +15,9 @@ import jakarta.persistence.Table;
 public class UsuarioModel {
 
     @Id
-    @Column(name = "id")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id;
     @Column(name = "azure_entra_id")
     private String azureEntraId;
     @Column(name = "school_id")
@@ -33,10 +37,10 @@ public class UsuarioModel {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     public String getAzureEntraId() {
