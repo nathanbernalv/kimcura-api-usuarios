@@ -15,13 +15,13 @@ import jakarta.persistence.Table;
 public class UsuarioModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
     @Column(name = "azure_entra_id")
     private String azureEntraId;
     @Column(name = "school_id")
-    private Long schoolId;
+    private UUID schoolId;
     @Column(name = "role")
     private String role;
     @Column(name = "email")
@@ -49,10 +49,10 @@ public class UsuarioModel {
     public void setAzureEntraId(String azureEntraId) {
         this.azureEntraId = azureEntraId;
     }
-    public Long getSchoolId() {
+    public UUID getSchoolId() {
         return schoolId;
     }
-    public void setSchoolId(Long schoolId) {
+    public void setSchoolId(UUID schoolId) {
         this.schoolId = schoolId;
     }
     public String getRole() {
